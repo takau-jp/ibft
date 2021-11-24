@@ -6,7 +6,7 @@
 /*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 09:53:20 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/19 23:10:43 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/11/23 19:36:12 by macbook_air      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,21 @@ int	check_long(long *num, int minus, char c)
 	if (*num > 922337203685477580)
 	{
 		if (minus == 1)
-			*num = 9223372036854775807;
+			*num = -1;
 		else
-			*num = -9223372036854775807 - 1;
+			*num = 0;
 		return (0);
 	}
 	if (*num == 922337203685477580)
 	{
 		if (minus == 1 && c >= '7')
 		{
-			*num = 9223372036854775807;
+			*num = -1;
 			return (0);
 		}
 		else if (minus == -1 && c >= '8')
 		{
-			*num = -9223372036854775807 - 1;
+			*num = 0;
 			return (0);
 		}
 	}

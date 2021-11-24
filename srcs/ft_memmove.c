@@ -6,7 +6,7 @@
 /*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 09:54:18 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/22 14:04:07 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/11/23 19:03:55 by macbook_air      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,11 @@ void	*ft_memmove(void *s1, const void *s2, size_t n)
 	}
 	else
 	{
-		while (n -- > 0)
-			*(unsigned char *)(s1 + n) = *(unsigned char *)(s2 + n);
+		while (n > 0)
+		{
+			*(unsigned char *)(s1 + n - 1) = *(unsigned char *)(s2 + n - 1);
+			n --;
+		}
 	}
 	return (s1);
 }
