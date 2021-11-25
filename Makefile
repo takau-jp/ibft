@@ -6,7 +6,7 @@
 #    By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 15:48:11 by macbook_air       #+#    #+#              #
-#    Updated: 2021/11/25 17:37:09 by macbook_air      ###   ########.fr        #
+#    Updated: 2021/11/25 17:53:29 by macbook_air      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ ${NAME} : ${OBJS}
 bonus:
 	@make WITH_BONUS=1
 
-all: $(NAME) bonus
+all: $(NAME)
 
 .c.o :
 	${CC} ${CFLAGS} ${CCPFLAGS} -c $< -o ${<:.c=.o}
