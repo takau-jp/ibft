@@ -6,7 +6,7 @@
 /*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:47:14 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/22 15:47:15 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/11/26 05:53:35 by macbook_air      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_putnbr_fd(int n, int fd)
 {
 	char	c;
 
-	if (n == -2147483648)
+	if (n == INT_MIN)
 	{
 		write(fd, "-2147483648", 11);
 		return ;

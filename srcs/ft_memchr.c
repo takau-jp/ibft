@@ -6,7 +6,7 @@
 /*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 09:54:10 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/18 22:50:10 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/11/26 05:34:45 by macbook_air      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	const char	*p;
+	char	*p;
 
-	p = (const char *)s;
+	p = (char *)s;
 	c = (char)c;
 	while (n-- > 0)
 	{

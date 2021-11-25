@@ -6,7 +6,7 @@
 /*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:47:09 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/22 15:47:10 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/11/26 05:53:15 by macbook_air      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,18 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
+	size_t	len;
+
 	if (!s)
 		return ;
-	while (*s)
+	len = ft_strlen(s);
+	while (len >= INT_MAX)
 	{
-		write(fd, s, 1);
-		s ++;
+		write(fd, s, INT_MAX);
+		len -= INT_MAX;
+		s += INT_MAX;
 	}
+	if (len > 0)
+		write(fd, s, len);
 	write(fd, "\n", 1);
 }

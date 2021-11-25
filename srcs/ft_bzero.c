@@ -6,7 +6,7 @@
 /*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 09:53:47 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/22 14:19:46 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/11/26 06:12:39 by macbook_air      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	*tmp;
+	char	*tmp;
 
 	tmp = s;
-	while (n -- > 0)
+	while (n-- > 0)
 		*tmp++ = '\0';
 }

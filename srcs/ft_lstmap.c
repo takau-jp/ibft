@@ -6,7 +6,7 @@
 /*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:46:40 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/22 15:46:41 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/11/26 06:14:56 by macbook_air      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,13 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		return (NULL);
 	new_lst = ft_lstnew(f(lst->content));
 	if (!new_lst)
-	{
-		ft_lstclear(&lst, del);
 		return (NULL);
-	}
-	lst = lst -> next;
+	lst = lst->next;
 	while (lst)
 	{
 		new = ft_lstnew(f(lst->content));
 		if (!new)
 		{
-			ft_lstclear(&lst, del);
 			ft_lstclear(&new_lst, del);
 			break ;
 		}

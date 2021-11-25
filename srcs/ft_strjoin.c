@@ -6,13 +6,13 @@
 /*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 20:13:29 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/20 20:36:21 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/11/26 06:18:22 by macbook_air      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, char const *src);
+static char	*ft_strcat(char *dest, char const *src);
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -29,20 +29,20 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (tmp);
 }
 
-char	*ft_strcat(char *dest, char const *src)
+static char	*ft_strcat(char *dest, char const *src)
 {
 	int	i;
 	int	j;
 
 	i = 0;
 	while (dest[i] != '\0')
-		i ++;
+		i++;
 	j = 0;
 	while (src[j] != '\0')
 	{
 		dest[i] = src[j];
-		i ++;
-		j ++;
+		i++;
+		j++;
 	}
 	dest[i] = '\0';
 	return (dest);

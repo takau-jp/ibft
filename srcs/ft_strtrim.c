@@ -6,13 +6,13 @@
 /*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 20:13:26 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/24 12:41:27 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/11/26 06:20:54 by macbook_air      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	is_set(char c, char const *set);
+static bool	is_set(char c, char const *set);
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
@@ -29,26 +29,24 @@ char	*ft_strtrim(char const *s1, char const *set)
 	{
 		if (!is_set(s1[start], set))
 			break ;
-		start ++;
+		start++;
 	}
-	if (start == end + 1)
-		return (ft_strdup(""));
 	while (start < end)
 	{
 		if (!is_set(s1[end], set))
 			break ;
-		end -- ;
+		end--;
 	}
 	return (ft_substr(s1, start, (end - start + 1)));
 }
 
-int	is_set(char c, char const *set)
+static bool	is_set(char c, char const *set)
 {
 	while (*set != '\0')
 	{
 		if (c == *set)
-			return (1);
+			return (true);
 		set++;
 	}
-	return (0);
+	return (false);
 }

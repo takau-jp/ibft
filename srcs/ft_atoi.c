@@ -6,44 +6,13 @@
 /*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 09:53:20 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/24 18:22:34 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/11/26 07:28:02 by macbook_air      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	is_space(char c)
-{
-	if (c == ' ' || ('\t' <= c && c <= '\r'))
-		return (1);
-	return (0);
-}
-
-int	check_long(long *num, int minus, char c)
-{
-	if (*num > 922337203685477580)
-	{
-		if (minus == 1)
-			*num = -1;
-		else
-			*num = 0;
-		return (0);
-	}
-	if (*num == 922337203685477580)
-	{
-		if (minus == 1 && c >= '7')
-		{
-			*num = -1;
-			return (0);
-		}
-		else if (minus == -1 && c >= '8')
-		{
-			*num = 0;
-			return (0);
-		}
-	}
-	return (1);
-}
+static bool	check_long(long *num, int minus, char c);
 
 int	ft_atoi(const char *str)
 {
@@ -54,13 +23,13 @@ int	ft_atoi(const char *str)
 	num = 0;
 	minus = 1;
 	i = 0;
-	while (is_space(str[i]))
-		i ++;
+	while (str[i] == ' ' || ('\t' <= str[i] && str[i] <= '\r'))
+		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
 			minus = -1;
-		i ++;
+		i++;
 	}
 	while ('0' <= str[i] && str[i] <= '9')
 	{
@@ -68,7 +37,33 @@ int	ft_atoi(const char *str)
 			return (num);
 		num *= 10;
 		num += str[i] - '0';
-		i ++;
+		i++;
 	}
 	return (num * minus);
+}
+
+static bool	check_long(long *num, int minus, char c)
+{
+	if (*num > LONG_MAX / 10)
+	{
+		if (minus == 1)
+			*num = LONG_MAX;
+		else
+			*num = LONG_MIN;
+		return (false);
+	}
+	if (*num == LONG_MAX / 10)
+	{
+		if (minus == 1 && c >= '7')
+		{
+			*num = LONG_MAX;
+			return (false);
+		}
+		else if (minus == -1 && c >= '8')
+		{
+			*num = LONG_MIN;
+			return (false);
+		}
+	}
+	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 09:54:16 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/22 15:48:54 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/11/26 07:26:55 by macbook_air      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	while (n > i)
 	{
 		*(unsigned char *)(dst + i) = *(unsigned char *)(src + i);
-		i ++;
+		i++;
 	}
 	return (dst);
 }

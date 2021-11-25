@@ -6,21 +6,21 @@
 /*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 23:10:38 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/17 19:04:01 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/11/26 06:13:49 by macbook_air      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*malloc_ascii_num(char *ascii_num, int n);
-char	*get_ascii_num(char *ascii_num, int num);
+static char	*malloc_ascii_num(char *ascii_num, int n);
+static char	*get_ascii_num(char *ascii_num, int num);
 
 char	*ft_itoa(int n)
 {
 	char	*ascii_num;
 
 	ascii_num = NULL;
-	if (n == -2147483648)
+	if (n == INT_MIN)
 	{
 		ascii_num = (char *)malloc(sizeof(char) * 12);
 		if (!ascii_num)
@@ -34,7 +34,7 @@ char	*ft_itoa(int n)
 	return (ascii_num);
 }
 
-char	*malloc_ascii_num(char *ascii_num, int n)
+static char	*malloc_ascii_num(char *ascii_num, int n)
 {
 	int		digit;
 	int		num;
@@ -49,7 +49,7 @@ char	*malloc_ascii_num(char *ascii_num, int n)
 	while (num >= 1)
 	{
 		num /= 10;
-		digit ++;
+		digit++;
 	}
 	ascii_num = (char *)malloc(sizeof(char) * (digit + 1));
 	if (!ascii_num)
@@ -60,13 +60,13 @@ char	*malloc_ascii_num(char *ascii_num, int n)
 	return (ascii_num);
 }
 
-char	*get_ascii_num(char *ascii_num, int n)
+static char	*get_ascii_num(char *ascii_num, int n)
 {
 	if (n < 0)
 	{
 		n *= -1;
 		*ascii_num = '-';
-		ascii_num ++;
+		ascii_num++;
 	}
 	if (n < 10)
 	{

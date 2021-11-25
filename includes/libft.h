@@ -6,7 +6,7 @@
 /*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:48:21 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/25 17:39:15 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/11/26 04:49:48 by macbook_air      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdbool.h>
 # include <limits.h>
 
 typedef struct s_list

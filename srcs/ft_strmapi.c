@@ -6,7 +6,7 @@
 /*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:47:45 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/22 15:47:46 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/11/26 06:19:17 by macbook_air      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	while (s[i])
 	{
 		str[i] = f(i, s[i]);
-		i ++;
+		i++;
 	}
 	str[i] = '\0';
 	return (str);
