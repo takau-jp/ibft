@@ -6,16 +6,16 @@
 /*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 19:07:37 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/20 20:08:49 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/11/25 17:30:06 by macbook_air      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**mem_alloc(char const *s, char c);
+char	**split_malloc(char const *s, char c);
 size_t	count_split(char const *s, char c);
-int		split_malloc(char const *s, char c, char **split, size_t count);
-void	split_cpy(char const *s, char c, char **split);
+int		str_split(char const *s, char c, char **split, size_t count);
+char	*split_strdup(char const *s, size_t len);
 
 char	**ft_split(char const *s, char c)
 {
@@ -23,7 +23,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	split = mem_alloc(s, c);
+	split = split_malloc(s, c);
 	if (!split)
 		return (NULL);
 	if (*s == '\0')
@@ -31,11 +31,10 @@ char	**ft_split(char const *s, char c)
 		split[0] = 0;
 		return (split);
 	}
-	split_cpy(s, c, split);
 	return (split);
 }
 
-char	**mem_alloc(char const *s, char c)
+char	**split_malloc(char const *s, char c)
 {
 	char	**split;
 	size_t	count;
@@ -47,7 +46,7 @@ char	**mem_alloc(char const *s, char c)
 		free(split);
 		return (NULL);
 	}
-	if (!split_malloc(s, c, split, count))
+	if (!str_split(s, c, split, count))
 		return (NULL);
 	split[count] = 0;
 	return (split);
@@ -73,23 +72,23 @@ size_t	count_split(char const *s, char c)
 	return (count);
 }
 
-int	split_malloc(char const *s, char c, char **split, size_t count)
+int	str_split(char const *s, char c, char **split, size_t count)
 {
-	size_t	n;
 	size_t	len;
+	size_t	n;
 
 	n = 0;
 	while (n < count)
 	{
 		len = 0;
-		if (*s ++ != c)
-			len ++;
-		while (len > 0 && *s != '\0')
+		while (*s == c && *s != '\0')
+			s ++;
+		while (*s != c && *s != '\0')
 		{
-			if (*s ++ != c)
-				len ++;
+			len ++;
+			s ++;
 		}
-		split[n] = (char *)malloc(sizeof(char) * (len + 1));
+		split[n] = split_strdup((s - len), len);
 		if (!split[n])
 		{
 			while (n -- > 0)
@@ -102,26 +101,13 @@ int	split_malloc(char const *s, char c, char **split, size_t count)
 	return (1);
 }
 
-void	split_cpy(char const *s, char c, char **split)
+char	*split_strdup(char const *s, size_t len)
 {
-	size_t	i;
-	size_t	j;
+	char	*dst;
 
-	i = 0;
-	j = 0;
-	if (*s != c)
-		split[i][j ++] = *s;
-	s ++;
-	while (*s)
-	{
-		if (*s != c)
-			split[i][j ++] = *s;
-		else if (s[-1] != c && *s == c)
-		{
-			split[i][j] = '\0';
-			j = 0;
-			i ++;
-		}
-		s ++;
-	}
+	dst = (char *)malloc(sizeof(char) * (len + 1));
+	if (!dst)
+		return (NULL);
+	ft_strlcpy(dst, s, len + 1);
+	return (dst);
 }

@@ -6,13 +6,14 @@
 /*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 20:13:31 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/20 20:34:10 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/11/24 18:57:20 by macbook_air      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 void	my_strcpy(char *dst, char const *s, size_t len);
+size_t	ft_strnlen(char *s, size_t n);
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -20,6 +21,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (NULL);
+	len = ft_strnlen((char *)s, len);
 	if (start >= ft_strlen(s) || len == 0)
 	{
 		dst = (char *)malloc(sizeof(char) * 1);
@@ -35,6 +37,16 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		s ++;
 	my_strcpy(dst, s, len);
 	return (dst);
+}
+
+size_t	ft_strnlen(char *s, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < n && s[i])
+		i ++;
+	return (i);
 }
 
 void	my_strcpy(char *dst, char const *s, size_t len)

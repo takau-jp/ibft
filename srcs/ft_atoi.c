@@ -6,7 +6,7 @@
 /*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 09:53:20 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/23 19:36:12 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/11/24 18:22:34 by macbook_air      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@ int	ft_atoi(const char *str)
 	i = 0;
 	while (is_space(str[i]))
 		i ++;
-	while (str[i] == '+' || str[i] == '-')
+	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
-			minus *= -1;
+			minus = -1;
 		i ++;
 	}
 	while ('0' <= str[i] && str[i] <= '9')
