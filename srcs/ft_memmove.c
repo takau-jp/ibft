@@ -6,24 +6,24 @@
 /*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 09:54:18 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/26 07:26:48 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/11/28 19:49:02 by macbook_air      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *s1, const void *s2, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
 	size_t	i;
 
-	if (!s1 && !s2)
+	if (dst == src)
 		return (NULL);
 	i = 0;
-	if (s1 < s2)
+	if (dst < src)
 	{
 		while (n > i)
 		{
-			*(unsigned char *)(s1 + i) = *(unsigned char *)(s2 + i);
+			*(char *)(dst + i) = *(char *)(src + i);
 			i++;
 		}
 	}
@@ -31,9 +31,9 @@ void	*ft_memmove(void *s1, const void *s2, size_t n)
 	{
 		while (n > 0)
 		{
-			*(unsigned char *)(s1 + n - 1) = *(unsigned char *)(s2 + n - 1);
+			*(char *)(dst + n - 1) = *(char *)(src + n - 1);
 			n--;
 		}
 	}
-	return (s1);
+	return (dst);
 }

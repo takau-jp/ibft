@@ -6,7 +6,7 @@
 /*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:47:18 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/26 05:53:56 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/11/28 19:32:58 by macbook_air      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_putstr_fd(char *s, int fd)
 {
 	size_t	len;
 
-	if (s == NULL)
+	if (!s)
 		return ;
 	len = ft_strlen(s);
 	while (len >= INT_MAX)
@@ -25,6 +25,5 @@ void	ft_putstr_fd(char *s, int fd)
 		len -= INT_MAX;
 		s += INT_MAX;
 	}
-	if (len > 0)
-		write(fd, s, len);
+	write(fd, s, len);
 }

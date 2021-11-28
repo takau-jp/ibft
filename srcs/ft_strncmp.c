@@ -6,7 +6,7 @@
 /*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 09:54:37 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/26 06:19:30 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/11/27 21:17:36 by macbook_air      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	size_t	i;
 
 	i = 0;
-	while ((s1[i] != '\0' || s2[i] != '\0') && n > i)
+	while (n > i && (s1[i] != '\0' || s2[i] != '\0'))
 	{
 		if (s1[i] != s2[i])
 			return ((unsigned char)s1[i] - (unsigned char)s2[i]);

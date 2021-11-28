@@ -6,7 +6,7 @@
 /*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 09:54:25 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/20 00:25:13 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/11/27 21:54:32 by macbook_air      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 char	*ft_strdup(const char *s1)
 {
 	char	*ptr;
+	size_t	len;
 
-	ptr = (char *)malloc(ft_strlen(s1) + 1);
+	len = ft_strlen(s1);
+	ptr = (char *)malloc(len + 1);
 	if (!ptr)
 		return (NULL);
-	ft_strlcpy(ptr, s1, (ft_strlen(s1) + 1));
+	ft_strlcpy(ptr, s1, (len + 1));
 	return (ptr);
 }

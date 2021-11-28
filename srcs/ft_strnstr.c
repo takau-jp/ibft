@@ -6,7 +6,7 @@
 /*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 09:54:39 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/26 06:19:45 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/11/28 19:18:23 by macbook_air      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,19 @@
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	i;
-	size_t	match;
+	size_t	n_len;
 
-	i = 0;
-	if (needle[0] == '\0')
+	if (!*needle)
 		return ((char *)haystack);
-	while (haystack[i] != '\0' && len > i)
+	if (!len)
+		return (NULL);
+	i = 0;
+	n_len = ft_strlen(needle);
+	while (haystack[i] && i + n_len <= len)
 	{
-		match = 0;
-		while (haystack[i + match] && needle[match] && i + match < len)
-		{
-			if (haystack[i + match] == needle[match])
-				match++;
-			else
-				break ;
-			if (needle[match] == '\0')
-				return ((char *)&haystack[i]);
-		}
-		i++;
+		if (!ft_strncmp(haystack + i, needle, n_len))
+			return ((char *)haystack + i);
+		i ++;
 	}
 	return (NULL);
 }

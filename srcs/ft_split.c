@@ -6,7 +6,7 @@
 /*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 19:07:37 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/26 06:38:08 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/11/27 12:54:34 by macbook_air      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static size_t	count_split(char const *s, char c);
 static bool		str_split(char const *s, char c, char **split, size_t count);
-static char		*split_strdup(char const *s, size_t len);
+static char		*split_strldup(char const *s, size_t len);
 
 char	**ft_split(char const *s, char c)
 {
@@ -26,10 +26,7 @@ char	**ft_split(char const *s, char c)
 	count = count_split(s, c);
 	split = (char **)malloc(sizeof(char *) * (count + 1));
 	if (!split)
-	{
-		free(split);
 		return (NULL);
-	}
 	if (!str_split(s, c, split, count))
 		return (NULL);
 	split[count] = 0;
@@ -38,20 +35,17 @@ char	**ft_split(char const *s, char c)
 
 static size_t	count_split(char const *s, char c)
 {
-	size_t	i;
 	size_t	count;
 
-	i = 0;
 	count = 0;
-	while (s[i] != '\0')
+	while (*s != '\0')
 	{
-		if (i == 0 && s[i] != c)
+		while (*s == c && *s != '\0')
+			s++;
+		if (*s != '\0')
 			count++;
-		else if (s[i] == c && i == 0)
-			;
-		else if (s[i - 1] == c && s[i] != c)
-			count++;
-		i++;
+		while (*s != c && *s != '\0')
+			s++;
 	}
 	return (count);
 }
@@ -72,7 +66,7 @@ static bool	str_split(char const *s, char c, char **split, size_t count)
 			len++;
 			s++;
 		}
-		split[n] = split_strdup((s - len), len);
+		split[n] = split_strldup((s - len), len);
 		if (!split[n])
 		{
 			while (n-- > 0)
@@ -85,7 +79,7 @@ static bool	str_split(char const *s, char c, char **split, size_t count)
 	return (true);
 }
 
-static char	*split_strdup(char const *s, size_t len)
+static char	*split_strldup(char const *s, size_t len)
 {
 	char	*dst;
 

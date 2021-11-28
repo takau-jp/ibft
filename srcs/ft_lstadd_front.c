@@ -6,7 +6,7 @@
 /*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:46:20 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/26 06:14:12 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/11/27 20:40:46 by macbook_air      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	if (!lst || !new)
 		return ;
-	new->next = *lst;
+	ft_lstlast(new)->next = *lst;
 	*lst = new;
 }

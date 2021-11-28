@@ -6,7 +6,7 @@
 /*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:46:23 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/26 05:29:22 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/11/27 21:30:37 by macbook_air      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	while (*lst)
 	{
 		tmp = (*lst)->next;
-		del((*lst)->content);
-		free(*lst);
+		ft_lstdelone(*lst, del);
 		*lst = tmp;
 	}
 }

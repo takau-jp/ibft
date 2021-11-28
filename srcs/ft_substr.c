@@ -6,7 +6,7 @@
 /*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 20:13:31 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/26 06:11:29 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/11/28 01:45:43 by macbook_air      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,13 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (NULL);
-	len = ft_strnlen((char *)s, len);
-	if (start >= ft_strlen(s) || len == 0)
-	{
-		dst = (char *)malloc(sizeof(char) * 1);
-		if (!dst)
-			return (NULL);
-		*dst = '\0';
-		return (dst);
-	}
+	if (len == 0 || start >= ft_strlen(s))
+		return (ft_strdup(""));
+	len = ft_strnlen((char *)s + start, len);
 	dst = (char *)malloc(sizeof(char) * (len + 1));
 	if (!dst)
 		return (NULL);
-	while (start-- > 0)
-		s++;
-	ft_strlcpy(dst, s, len + 1);
+	ft_strlcpy(dst, s + start, len + 1);
 	return (dst);
 }
 

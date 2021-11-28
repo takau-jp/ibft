@@ -6,7 +6,7 @@
 /*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:48:21 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/26 04:49:48 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/11/28 12:00:19 by macbook_air      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <stdbool.h>
 # include <limits.h>
+# include <errno.h>
 
 typedef struct s_list
 {
@@ -35,7 +36,7 @@ int		ft_isprint(int c);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
-void	*ft_memmove(void *dest, const void *src, size_t n);
+void	*ft_memmove(void *dst, const void *src, size_t n);
 void	*ft_memset(void *buf, int ch, size_t n);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s1);
