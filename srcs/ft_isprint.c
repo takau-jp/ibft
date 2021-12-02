@@ -6,7 +6,7 @@
 /*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 09:54:07 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/26 05:28:38 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/11/28 22:00:51 by macbook_air      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int	ft_isprint(int c)
 {
-	return (' ' <= c && c <= 126);
+	return (' ' <= c && c <= '~');
 }

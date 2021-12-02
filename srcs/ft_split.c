@@ -6,7 +6,7 @@
 /*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 19:07:37 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/27 12:54:34 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/12/01 21:36:54 by macbook_air      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static size_t	count_split(char const *s, char c);
 static bool		str_split(char const *s, char c, char **split, size_t count);
-static char		*split_strldup(char const *s, size_t len);
+static char		*ft_strndup(char const *s, size_t len);
 
 char	**ft_split(char const *s, char c)
 {
@@ -66,7 +66,7 @@ static bool	str_split(char const *s, char c, char **split, size_t count)
 			len++;
 			s++;
 		}
-		split[n] = split_strldup((s - len), len);
+		split[n] = ft_strndup((s - len), len);
 		if (!split[n])
 		{
 			while (n-- > 0)
@@ -79,7 +79,7 @@ static bool	str_split(char const *s, char c, char **split, size_t count)
 	return (true);
 }
 
-static char	*split_strldup(char const *s, size_t len)
+static char	*ft_strndup(char const *s, size_t len)
 {
 	char	*dst;
 

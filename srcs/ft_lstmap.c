@@ -6,7 +6,7 @@
 /*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:46:40 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/27 20:42:03 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/12/01 18:00:12 by macbook_air      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 			ft_lstclear(&new_lst, del);
 			break ;
 		}
-		lst = lst->next;
 		ft_lstadd_back(&new_lst, new);
+		lst = lst->next;
 	}
 	return (new_lst);
 }
