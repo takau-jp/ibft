@@ -1,41 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/21 20:13:31 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/12/04 20:16:14 by stanaka          ###   ########.fr       */
+/*   Created: 2021/10/21 20:13:29 by macbook_air       #+#    #+#             */
+/*   Updated: 2021/12/04 23:21:06 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_strnlen(char *s, size_t n);
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*dst;
+	char	*tmp;
 
-	if (!s)
+	if (!s1 || !s2)
 		return (NULL);
-	if (len == 0 || start >= ft_strlen(s))
-		return (ft_strdup(""));
-	len = ft_strnlen((char *)s + start, len);
-	dst = (char *)malloc(sizeof(char) * (len + 1));
-	if (!dst)
+	tmp = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!tmp)
 		return (NULL);
-	ft_strlcpy(dst, s + start, len + 1);
-	return (dst);
-}
-
-static size_t	ft_strnlen(char *s, size_t n)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < n && s[i])
-		i++;
-	return (i);
+	*tmp = '\0';
+	ft_strcat(tmp, s1);
+	ft_strcat(tmp, s2);
+	return (tmp);
 }

@@ -1,40 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/22 15:47:14 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/12/04 18:38:31 by stanaka          ###   ########.fr       */
+/*   Created: 2021/10/21 09:54:28 by macbook_air       #+#    #+#             */
+/*   Updated: 2021/12/04 23:21:13 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static unsigned int	ft_abs(int i);
-
-void	ft_putnbr_fd(int n, int fd)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	unsigned int	num;
+	size_t	dstlen;
+	size_t	srclen;
 
-	num = n;
-	if (n < 0)
-	{
-		write(fd, "-", 1);
-		num = ft_abs(n);
-	}
-	if (num >= 10)
-		ft_putnbr_fd(num / 10, fd);
-	write(fd, &"0123456789"[num % 10], 1);
-}
-
-static unsigned int	ft_abs(int i)
-{
-	unsigned int	u;
-
-	u = i;
-	if (i < 0)
-		u = ~i + 1;
-	return (u);
+	dstlen = ft_strnlen(dst, dstsize);
+	srclen = ft_strlen(src);
+	if (dstlen == dstsize)
+		return (dstlen + srclen);
+	if (srclen < dstsize - dstlen)
+		ft_strlcpy(dst + dstlen, src, srclen + 1);
+	else
+		ft_strlcpy(dst + dstlen, src, dstsize - dstlen);
+	return (dstlen + srclen);
 }

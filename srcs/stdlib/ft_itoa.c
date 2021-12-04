@@ -6,14 +6,13 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 23:10:38 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/12/04 18:37:29 by stanaka          ###   ########.fr       */
+/*   Updated: 2021/12/04 23:20:28 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static char			*get_ascii_num(char *ascii_num, int num);
-static unsigned int	ft_abs(int i);
 
 char	*ft_itoa(int n)
 {
@@ -49,14 +48,4 @@ static char	*get_ascii_num(char *ascii_num, int n)
 		ascii_num = get_ascii_num(ascii_num, num / 10);
 	*ascii_num++ = '0' + (num % 10);
 	return (ascii_num);
-}
-
-static unsigned int	ft_abs(int i)
-{
-	unsigned int	u;
-
-	u = i;
-	if (i < 0)
-		u = ~i + 1;
-	return (u);
 }

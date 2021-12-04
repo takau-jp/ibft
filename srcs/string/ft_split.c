@@ -6,7 +6,7 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 19:07:37 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/12/04 18:17:22 by stanaka          ###   ########.fr       */
+/*   Updated: 2021/12/04 23:21:25 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static size_t	count_split(char const *s, char c);
 static char		**str_split(char const *s, char c, char **split, size_t count);
-static char		*ft_strndup(char const *s, size_t len);
 
 char	**ft_split(char const *s, char c)
 {
@@ -75,15 +74,4 @@ static char	**str_split(char const *s, char c, char **split, size_t count)
 		n++;
 	}
 	return (split);
-}
-
-static char	*ft_strndup(char const *s, size_t len)
-{
-	char	*dst;
-
-	dst = (char *)malloc(sizeof(char) * (len + 1));
-	if (!dst)
-		return (NULL);
-	ft_strlcpy(dst, s, len + 1);
-	return (dst);
 }
