@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
+/*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 23:10:38 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/28 19:24:57 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/12/04 18:37:29 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static char			*get_ascii_num(char *ascii_num, int num);
-static unsigned int	ft_absi(int i);
+static unsigned int	ft_abs(int i);
 
 char	*ft_itoa(int n)
 {
@@ -22,7 +22,7 @@ char	*ft_itoa(int n)
 	int				digit;
 
 	digit = 0;
-	num = ft_absi(n);
+	num = ft_abs(n);
 	if (n <= 0)
 		digit = 1;
 	while (num > 0)
@@ -42,7 +42,7 @@ static char	*get_ascii_num(char *ascii_num, int n)
 {
 	unsigned int	num;
 
-	num = ft_absi(n);
+	num = ft_abs(n);
 	if (n < 0)
 		*ascii_num++ = '-';
 	if (num >= 10)
@@ -51,12 +51,12 @@ static char	*get_ascii_num(char *ascii_num, int n)
 	return (ascii_num);
 }
 
-static unsigned int	ft_absi(int i)
+static unsigned int	ft_abs(int i)
 {
 	unsigned int	u;
 
 	u = i;
-	if (u > INT_MAX)
+	if (i < 0)
 		u = ~i + 1;
 	return (u);
 }

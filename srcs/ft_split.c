@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
+/*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 19:07:37 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/12/01 21:36:54 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/12/04 18:17:22 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static size_t	count_split(char const *s, char c);
-static bool		str_split(char const *s, char c, char **split, size_t count);
+static char		**str_split(char const *s, char c, char **split, size_t count);
 static char		*ft_strndup(char const *s, size_t len);
 
 char	**ft_split(char const *s, char c)
@@ -27,10 +27,8 @@ char	**ft_split(char const *s, char c)
 	split = (char **)malloc(sizeof(char *) * (count + 1));
 	if (!split)
 		return (NULL);
-	if (!str_split(s, c, split, count))
-		return (NULL);
-	split[count] = 0;
-	return (split);
+	split[count] = NULL;
+	return (str_split(s, c, split, count));
 }
 
 static size_t	count_split(char const *s, char c)
@@ -50,7 +48,7 @@ static size_t	count_split(char const *s, char c)
 	return (count);
 }
 
-static bool	str_split(char const *s, char c, char **split, size_t count)
+static char	**str_split(char const *s, char c, char **split, size_t count)
 {
 	size_t	len;
 	size_t	n;
@@ -72,11 +70,11 @@ static bool	str_split(char const *s, char c, char **split, size_t count)
 			while (n-- > 0)
 				free(split[n]);
 			free(split);
-			return (false);
+			return (NULL);
 		}
 		n++;
 	}
-	return (true);
+	return (split);
 }
 
 static char	*ft_strndup(char const *s, size_t len)

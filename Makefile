@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+         #
+#    By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 15:48:11 by macbook_air       #+#    #+#              #
-#    Updated: 2021/11/25 19:20:10 by macbook_air      ###   ########.fr        #
+#    Updated: 2021/12/04 20:22:22 by stanaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,32 +20,35 @@ SRCS	= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c\
 B_SRCS	= ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c\
 		  ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 OBJS	= ${SRCS:.c=.o}
-B_OBJS	= $(B_SRCS:%.c=%.o)
+B_OBJS	= $(B_SRCS:.c=.o)
 ifdef WITH_BONUS
 OBJS	+= $(B_OBJS)
 endif
+DEPS	= ${SRCS:.c=.d}
+B_DEPS	= ${B_SRCS:.c=.d}
 CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror -MMD -MP
 RM = rm -f
 
 ${NAME} : ${OBJS}
-	ar rc $(NAME) $(OBJS)
-	ranlib $(NAME)
-
-bonus:
-	make WITH_BONUS=1
+	ar rcs $(NAME) $(OBJS)
 
 all: $(NAME)
 
+bonus :
+	@make WITH_BONUS=1
+
 .c.o :
-	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+	${CC} ${CFLAGS} -c $< -o $@
 
 clean:
-	${RM} ${OBJS} $(B_OBJS)
+	${RM} ${OBJS} $(B_OBJS) ${DEPS} ${B_DEPS}
 
 fclean: clean
 	${RM} ${NAME}
 
 re: fclean all
+
+-include ${DEPS}
 
 .PHONY: all clean fclean re bonus

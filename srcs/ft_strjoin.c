@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
+/*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 20:13:29 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/12/01 21:37:45 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/12/04 18:19:28 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	tmp = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!tmp)
 		return (NULL);
-	tmp[0] = '\0';
+	*tmp = '\0';
 	ft_strcat(tmp, s1);
 	ft_strcat(tmp, s2);
 	return (tmp);

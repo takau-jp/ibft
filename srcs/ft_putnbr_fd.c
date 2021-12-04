@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
+/*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:47:14 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/28 19:32:49 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/12/04 18:38:31 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static unsigned int	ft_absi(int i);
+static unsigned int	ft_abs(int i);
 
 void	ft_putnbr_fd(int n, int fd)
 {
@@ -22,19 +22,19 @@ void	ft_putnbr_fd(int n, int fd)
 	if (n < 0)
 	{
 		write(fd, "-", 1);
-		num = ft_absi(n);
+		num = ft_abs(n);
 	}
 	if (num >= 10)
 		ft_putnbr_fd(num / 10, fd);
 	write(fd, &"0123456789"[num % 10], 1);
 }
 
-static unsigned int	ft_absi(int i)
+static unsigned int	ft_abs(int i)
 {
 	unsigned int	u;
 
 	u = i;
-	if (u > INT_MAX)
+	if (i < 0)
 		u = ~i + 1;
 	return (u);
 }

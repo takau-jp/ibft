@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
+/*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:46:28 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/26 05:29:15 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/12/04 18:06:42 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	if (!lst || !del)
+	if (!lst)
 		return ;
-	(*del)(lst->content);
+	if (del)
+		(*del)(lst->content);
 	free(lst);
 }

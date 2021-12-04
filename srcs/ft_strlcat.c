@@ -3,30 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macbook_air <macbook_air@student.42.fr>    +#+  +:+       +#+        */
+/*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 09:54:28 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/11/29 21:59:19 by macbook_air      ###   ########.fr       */
+/*   Updated: 2021/12/04 20:01:01 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static size_t	ft_strnlen(char *s, size_t n);
+
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	length;
-	size_t	i;
-	size_t	j;
+	size_t	dstlen;
+	size_t	srclen;
 
-	if (!dstsize)
-		return (ft_strlen(src));
-	i = ft_strlen(dst);
-	if (dstsize <= i)
-		return (dstsize + ft_strlen(src));
-	length = i + ft_strlen(src);
-	j = 0;
-	while (dstsize > i + 1 && src[j])
-		dst[i++] = src[j++];
-	dst[i] = '\0';
-	return (length);
+	dstlen = ft_strnlen(dst, dstsize);
+	srclen = ft_strlen(src);
+	if (dstlen == dstsize)
+		return (dstlen + srclen);
+	if (srclen < dstsize - dstlen)
+		ft_strlcpy(dst + dstlen, src, srclen + 1);
+	else
+		ft_strlcpy(dst + dstlen, src, dstsize - dstlen);
+	return (dstlen + srclen);
+}
+
+static size_t	ft_strnlen(char *s, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < n && s[i])
+		i++;
+	return (i);
 }
