@@ -6,7 +6,7 @@
 #    By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 15:48:11 by macbook_air       #+#    #+#              #
-#    Updated: 2021/12/05 00:52:46 by stanaka          ###   ########.fr        #
+#    Updated: 2021/12/05 01:21:44 by stanaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,9 +32,10 @@ endif
 DEPS	= ${addprefix ${OBJDIR}/, ${notdir ${SRCS:.c=.d}}}
 B_DEPS	= ${addprefix ${OBJDIR}/, ${notdir ${B_SRCS:.c=.d}}}
 
-INCLUDE   = -I./includes
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror -MMD -MP
+INCLUDE   = -I./includes
+
 RM = rm -f
 
 ${NAME} : ${OBJS}
