@@ -1,25 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/04 22:41:14 by stanaka           #+#    #+#             */
-/*   Updated: 2021/12/05 00:52:15 by stanaka          ###   ########.fr       */
+/*   Created: 2021/12/05 00:51:03 by stanaka           #+#    #+#             */
+/*   Updated: 2021/12/05 00:51:45 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
-
-# include <stddef.h>
-
-unsigned int	ft_abs(int i);
-unsigned long	ft_labs(long i);
-char			*ft_strcat(char *s1, const char *s2);
-char			*ft_strndup(char const *s1, size_t n);
-size_t			ft_strnlen(char *s, size_t n);
-int				ft_isspace(int c);
-
-#endif
+int	ft_isspace(int c)
+{
+	return (c == '\t' || c == '\n' || c == '\v' || \
+		    c == '\f' || c == '\r' || c == ' ');
+}

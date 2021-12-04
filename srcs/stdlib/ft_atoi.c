@@ -6,7 +6,7 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 09:53:20 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/12/04 23:21:39 by stanaka          ###   ########.fr       */
+/*   Updated: 2021/12/05 00:51:54 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_atoi(const char *str)
 	num = 0;
 	sign = 1;
 	i = 0;
-	while (str[i] == ' ' || ('\t' <= str[i] && str[i] <= '\r'))
+	while (ft_isspace(str[i]))
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{
