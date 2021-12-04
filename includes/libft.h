@@ -6,7 +6,7 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:48:21 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/12/04 22:46:08 by stanaka          ###   ########.fr       */
+/*   Updated: 2021/12/05 01:09:42 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 # define LIBFT_H
 
 # include <unistd.h>
-# include <stdlib.h>
+# include <stddef.h>
 # include <stdbool.h>
 # include <limits.h>
 # include <errno.h>
+# include <stdlib.h>
 
 # include "utils.h"
 

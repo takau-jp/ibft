@@ -6,11 +6,11 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 09:54:37 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/12/04 20:09:28 by stanaka          ###   ########.fr       */
+/*   Updated: 2021/12/05 01:08:09 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

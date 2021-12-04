@@ -6,11 +6,9 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 09:54:45 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/12/04 20:16:19 by stanaka          ###   ########.fr       */
+/*   Updated: 2021/12/05 00:57:15 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_tolower(int c)
 {

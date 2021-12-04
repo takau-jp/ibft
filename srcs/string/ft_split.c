@@ -6,7 +6,7 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 19:07:37 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/12/04 23:21:25 by stanaka          ###   ########.fr       */
+/*   Updated: 2021/12/05 01:05:57 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static char	**str_split(char const *s, char c, char **split, size_t count)
 		split[n] = ft_strndup((s - len), len);
 		if (!split[n])
 		{
-			while (n-- > 0)
+			while (n--)
 				free(split[n]);
 			free(split);
 			return (NULL);

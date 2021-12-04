@@ -6,11 +6,11 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 09:54:18 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/12/04 20:06:30 by stanaka          ###   ########.fr       */
+/*   Updated: 2021/12/05 01:05:18 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 void	*ft_memmove(void *dst, const void *src, size_t n)
 {
