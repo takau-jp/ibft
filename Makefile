@@ -6,7 +6,7 @@
 #    By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 15:48:11 by macbook_air       #+#    #+#              #
-#    Updated: 2021/12/05 01:49:01 by stanaka          ###   ########.fr        #
+#    Updated: 2021/12/05 11:11:36 by stanaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ INCLUDE   = -I./includes
 RM = rm -f
 
 ${NAME} : ${OBJS}
-	ar rcs $(NAME) $(OBJS)
+	ar src $(NAME) $(OBJS)
 
 ${OBJDIR}/%.o: ${SRCDIR}/ctype/%.c
 	-mkdir -p ${OBJDIR}
