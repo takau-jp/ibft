@@ -6,7 +6,7 @@
 #    By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 15:48:11 by macbook_air       #+#    #+#              #
-#    Updated: 2021/12/05 11:11:36 by stanaka          ###   ########.fr        #
+#    Updated: 2021/12/16 21:40:09 by stanaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,7 @@ clean:
 
 fclean: clean
 	${RM} ${NAME}
-	rmdir ${OBJDIR}
+	rm -rf ${OBJDIR}
 
 re: fclean all
 
