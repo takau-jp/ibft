@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   ft_print_buf.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/04 22:41:14 by stanaka           #+#    #+#             */
-/*   Updated: 2022/06/15 16:20:24 by stanaka          ###   ########.fr       */
+/*   Created: 2022/05/22 14:05:01 by stanaka           #+#    #+#             */
+/*   Updated: 2022/06/15 16:36:32 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#include "ft_printf.h"
 
-unsigned int	ft_abs(int i);
-unsigned long	ft_labs(long i);
-char			*ft_strcat(char *s1, const char *s2);
-char			*ft_strndup(char const *s1, size_t n);
-size_t			ft_strnlen(char *s, size_t n);
-int				ft_isspace(int c);
+bool	ft_print_buf(t_print *print, t_conv *conv, int len)
+{
+	size_t	buf_len;
+	int		put_len;
 
-#endif
+	buf_len = ft_strlen(print->buf);
+	if (len >= conv->width)
+		put_len = len;
+	else
+		put_len = conv->width;
+	if (print->res + buf_len + put_len >= INT_MAX)
+	{
+		print->res = -1;
+		return (false);
+	}
+	print->res += write(1, print->buf, buf_len);
+	return (true);
+}

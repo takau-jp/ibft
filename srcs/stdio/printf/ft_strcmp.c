@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/04 22:41:14 by stanaka           #+#    #+#             */
-/*   Updated: 2022/06/15 16:20:24 by stanaka          ###   ########.fr       */
+/*   Created: 2022/05/22 18:19:37 by stanaka           #+#    #+#             */
+/*   Updated: 2022/06/15 16:38:36 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#include <stddef.h>
 
-unsigned int	ft_abs(int i);
-unsigned long	ft_labs(long i);
-char			*ft_strcat(char *s1, const char *s2);
-char			*ft_strndup(char const *s1, size_t n);
-size_t			ft_strnlen(char *s, size_t n);
-int				ft_isspace(int c);
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	size_t	i;
 
-#endif
+	i = 0;
+	while (s1[i] || s2[i])
+	{
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
+	}
+	return (0);
+}

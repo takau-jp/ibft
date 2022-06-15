@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   ft_conv_percent.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/04 22:41:14 by stanaka           #+#    #+#             */
-/*   Updated: 2022/06/15 16:20:24 by stanaka          ###   ########.fr       */
+/*   Created: 2022/02/11 09:33:15 by stanaka           #+#    #+#             */
+/*   Updated: 2022/06/15 16:33:27 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#include "ft_printf.h"
 
-unsigned int	ft_abs(int i);
-unsigned long	ft_labs(long i);
-char			*ft_strcat(char *s1, const char *s2);
-char			*ft_strndup(char const *s1, size_t n);
-size_t			ft_strnlen(char *s, size_t n);
-int				ft_isspace(int c);
+int	ft_conv_percent(t_print *print, t_conv *conv)
+{
+	int	res;
 
-#endif
+	res = 0;
+	if (!ft_print_buf(print, conv, 1))
+		return (-1);
+	if (!conv->space_flags)
+		res += ft_put_width_space(conv, 1);
+	if (conv->space_flags == '0')
+		res += ft_put_width_zero(conv, 1);
+	res += ft_putchar('%');
+	if (conv->space_flags == '-')
+		res += ft_put_width_space(conv, 1);
+	return (res);
+}

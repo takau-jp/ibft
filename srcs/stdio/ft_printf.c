@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/04 22:41:14 by stanaka           #+#    #+#             */
-/*   Updated: 2022/06/15 16:20:24 by stanaka          ###   ########.fr       */
+/*   Created: 2021/12/10 18:51:37 by stanaka           #+#    #+#             */
+/*   Updated: 2022/06/15 16:16:55 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#include "ft_printf.h"
 
-unsigned int	ft_abs(int i);
-unsigned long	ft_labs(long i);
-char			*ft_strcat(char *s1, const char *s2);
-char			*ft_strndup(char const *s1, size_t n);
-size_t			ft_strnlen(char *s, size_t n);
-int				ft_isspace(int c);
+int	ft_printf(const char *format, ...)
+{
+	char	*itr;
+	t_print	print;
+	t_conv	conv;
+	va_list	ap;
 
-#endif
+	itr = (char *)format;
+	if (!itr)
+		return (-1);
+	va_start(ap, format);
+	ft_memset(&print, 0, sizeof(print));
+	print.res = ft_print(itr, &print, &conv, &ap);
+	va_end(ap);
+	return (print.res);
+}

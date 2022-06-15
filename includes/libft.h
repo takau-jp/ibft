@@ -6,7 +6,7 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:48:21 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/12/05 01:09:42 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/06/15 16:22:30 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,14 @@
 # include <limits.h>
 # include <errno.h>
 # include <stdlib.h>
+# include <stdarg.h>
+# include <unistd.h>
+# include <float.h>
+# include <stdint.h>
+# include <inttypes.h>
 
 # include "utils.h"
+# include "printf.h"
 
 typedef struct s_list
 {
